@@ -1,0 +1,3 @@
+Select F1.X,F1.Y From (Select X,Y,Row_Number() OVER (Order BY X) AS ID From Functions) F1
+JOIN (Select X,Y,Row_Number() OVER (Order By X) AS ID From Functions)  F2 ON F1.X=F2.Y AND F1.Y=F2.X And (F1.ID<F2.ID)
+Order BY F1.X ASC
